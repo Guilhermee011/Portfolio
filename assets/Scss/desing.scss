@@ -1,0 +1,230 @@
+$bg: #0b1120;
+$surface: #111827;
+$surface-light: #1f293d;
+$primary: #06b6d4;
+$primary-dark: #0891b2;
+$secondary: #10b981;
+$text: #f3f4f6;
+$text-muted: #9ca3af;
+$border: #1f293d;
+
+$grad-primary: linear-gradient(135deg, $primary, $primary-dark);
+$grad-accent: linear-gradient(135deg, $primary, $secondary);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.08), transparent 35%), $bg;
+  color: $text;
+}
+
+header {
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  background: rgba(11, 17, 32, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+.logo {
+  color: $text;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+
+  span { color: $primary; }
+}
+
+nav ul a {
+  position: relative;
+  color: $text-muted;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: $primary;
+    transition: width 0.25s ease;
+  }
+
+  &:hover {
+    color: $text;
+    &::after { width: 100%; }
+  }
+}
+
+.hero {
+  .intro {
+    color: $primary;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+
+    span {
+      background: $grad-accent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  h2 {
+    color: $text-muted;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: $text-muted;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+}
+
+.hero-code {
+  font-family: monospace;
+  font-size: 4rem;
+  color: $primary;
+  background: rgba(6, 182, 212, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+
+  strong { color: $text; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &.primary {
+    background: $grad-primary;
+    color: white;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(6, 182, 212, 0.35);
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    color: $text;
+    border: 1px solid $border;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.section-title {
+  margin-bottom: 40px;
+
+  small {
+    color: $secondary;
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+
+    span { color: $primary; }
+  }
+}
+
+.card {
+  background: $surface;
+  border: 1px solid $border;
+  padding: 30px;
+  border-radius: 12px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+
+  .icon {
+    color: $secondary;
+    font-size: 1.2rem;
+  }
+
+  h3 { margin: 12px 0 8px; font-size: 1.2rem; }
+  p { color: $text-muted; font-size: 0.95rem; line-height: 1.6; }
+
+  &:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    transform: translateY(-4px);
+  }
+}
+
+.technology {
+  background: $surface;
+  border: 1px solid $border;
+  padding: 24px;
+  border-radius: 10px;
+
+  strong { font-size: 1.1rem; color: $text; margin-bottom: 4px; display: block; }
+  span { font-size: 0.85rem; color: $text-muted; }
+
+  &:hover { border-color: $primary; }
+}
+
+.projects .card {
+  small { color: $primary; font-family: monospace; }
+  span { display: inline-block; margin-top: 20px; font-size: 0.85rem; color: $secondary; font-family: monospace; }
+}
+
+.contact {
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.05), transparent 70%);
+
+  small { color: $primary; font-family: monospace; letter-spacing: 2px; }
+  h2 { font-size: 2.5rem; margin: 16px 0; span { color: $primary; } }
+  p { color: $text-muted; max-width: 500px; margin: 0 auto 32px; line-height: 1.7; }
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid $border;
+  color: $text-muted;
+  font-size: 0.9rem;
+}
