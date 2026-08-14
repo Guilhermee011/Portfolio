@@ -228,3 +228,12 @@ footer {
   color: $text-muted;
   font-size: 0.9rem;
 }
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; 
+  display: block;
+  object-fit: cover;
+  border: 3px solid #f3f4f6;
+  margin: 5 auto;
+}
